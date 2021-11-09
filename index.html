@@ -1,0 +1,36 @@
+<head>
+  <script src="./node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+  <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      font-family: 'Poppins';
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <lit-element-drop-down 
+        title="Chose your language" 
+        value="German" 
+        closed="true" 
+        options='["German","English","France","Espanol"]'>
+    </lit-element-drop-down>
+    <p></p>
+    <script>
+        const dropDown = document.querySelector('lit-element-drop-down');
+        dropDown.addEventListener('selectionChanged', (e) => {
+          console.log(e.detail.option);
+          const p = document.querySelector('p');
+          p.innerHTML = `You have selcted ${e.detail.option}`;
+        });
+    </script>
+</body>
